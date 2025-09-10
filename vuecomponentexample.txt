@@ -1,0 +1,88 @@
+<template>
+  <div>
+    <component
+      v-for="(el, index) in elements"
+      :key="index"
+      :is="el.tag"
+      v-bind="el.attrs"
+    >
+      {{ el.content }}
+    </component>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+// Example structured elements array
+const elements = ref([
+  { tag: 'p', content: 'This is a paragraph.', attrs: {} },
+  { tag: 'h2', content: 'Heading Level 2', attrs: {} },
+  { tag: 'button', content: 'Click Me', attrs: { type: 'button', onClick: () => alert('Clicked!') } },
+  { tag: 'ul', content: '', attrs: {}, children: [
+    { tag: 'li', content: 'Item 1', attrs: {} },
+    { tag: 'li', content: 'Item 2', attrs: {} }
+  ]}
+])
+</script>
+
+<template>
+  <component :is="element.tag" v-bind="element.attrs">
+    <template v-if="element.children && element.children.length">
+      <SafeElement
+        v-for="(child, index) in element.children"
+        :key="index"
+        :element="child"
+      />
+    </template>
+    <template v-else>
+      {{ element.content }}
+    </template>
+  </component>
+</template>
+
+<script setup>
+defineProps({
+  element: {
+    type: Object,
+    required: true
+  }
+})
+</script>
+
+<template>
+  <div>
+    <SafeElement
+      v-for="(el, index) in elements"
+      :key="index"
+      :element="el"
+    />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import SafeElement from './SafeElement.vue'
+
+const elements = ref([
+  { tag: 'p', content: 'This is a paragraph.', attrs: {} },
+  { tag: 'h2', content: 'Heading Level 2', attrs: {} },
+  {
+    tag: 'button',
+    content: 'Click Me',
+    attrs: {
+      type: 'button',
+      onClick: () => alert('Clicked!')
+    }
+  },
+  {
+    tag: 'ul',
+    content: '',
+    attrs: {},
+    children: [
+      { tag: 'li', content: 'Item 1', attrs: {} },
+      { tag: 'li', content: 'Item 2', attrs: {} }
+    ]
+  }
+])
+</script>
