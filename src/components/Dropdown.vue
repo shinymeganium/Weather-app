@@ -1,42 +1,21 @@
+<template>
+  <button :id="props.btn" :class="props.btnClasses">
+    <div v-for="elem in props.btnContent">
+      <span v-if="elem.type === 'text'">
+        {{ elem.value }}
+      </span>
+      <img v-else :src="elem.src ">
+    </div>
+    <div id="" class="">
+
+    </div>
+  </button>
+</template>
+
 <script setup>
-const props = defineProps(["button", "display", "content"]);
+import DropdownElement from './DropdownElement.vue';
 
-function showDropdown() {
-  document.querySelector(props.display).classList.toggle("hidden");
-}
-
-// document.querySelector("#units").addEventListener("hover", () => {
-//   document.querySelector("#units_dt").classList.toggle("cursor-pointer");
-// });
-document.querySelector(props.button).addEventListener("click", showDropdown);
+const props = defineProps(["btn", "dd", "btnClasses", "ddClasses", "btnContent", "ddContent"]);
+// const btnElems = ["11", " Units ", "<img class='w-35 h-8' src='\src\assets\img\icon-units.svg' alt='logo'>"];
 
 </script>
-
-<template>
-  <!-- <div id="units" class="flex justify-center items-center gap-2 px-4 py-3 bg-widget-color rounded-xl">
-    <img class="size-5" src="\src\assets\img\icon-units.svg" alt="gear">
-    <span> Units </span> 
-    <img class="size-3" src="\src\assets\img\icon-dropdown.svg" alt="dropdown">
-      <div id="units_dt" class="hidden w-53 flex flex-col absolute top-15 right-0 bg-widget-color rounded-xl">
-        <span class="">Switch to Imperial</span>
-        <span class="">Temperature</span>
-        <span class="">Celsius (C)</span>
-        <span class="">Fahrenheit (F)</span>
-        <hr>
-        <span class="">Wind Speed</span>
-        <span class="">km/h</span>
-        <span class="">mph</span>
-        <hr>
-        <span class="">Precipitation</span>
-        <span class="">Millimeters (mm)</span>
-        <span class="">Inches (in)</span>
-    </div>
-  </div> -->
-  <div id="props.button" class="flex justify-center items-center gap-2 px-4 py-3 bg-widget-color rounded-xl"> <span>test</span>
-    <ul id="props.display" class="hidden w-53 flex flex-col absolute top-15 right-0 bg-widget-color rounded-xl">
-      <li v-for="item in content" class="">
-        {{ item }}
-      </li>
-    </ul>
-  </div>
-</template>
