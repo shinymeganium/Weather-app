@@ -1,17 +1,16 @@
 <template>
-  <button>
-    {{ props.btnTxt }}
-    <div>
+  <button :id="btnID" :class="btnClasses">
+    <template v-for="element in btnContent" :key="element.id">
+      <img v-if="element.tag === 'img'" :src="element.src" :alt="element.alt" :class="element.classes">
+      <span v-else :class="element.classes">{{ element.text }}</span>
+    </template>
+    <template :id="ddID" :class="ddClasses">
+      asd
+    </template>
 
-    </div>
   </button>
 </template>
 
 <script setup>
-
-const props = defineProps("btnTxt");
-// const props = defineProps(
-//   "btn", "btnTxt", "btnClasses",
-//   "dd", "ddContent", "ddClasses");
-  // btnText=array of elements, dd=dropdown, ddContent=array of elements
+defineProps(["btnID", "btnClasses", "btnContent", "ddID", "ddClasses", "metric"]);
 </script>

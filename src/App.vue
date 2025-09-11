@@ -1,9 +1,7 @@
 <template>
-  <!-- <main-container /> -->
-  <ParentComponent />
+  <MainContainer />
 </template>
 
 <script setup>
-import MainContainer from './components/MainContainer.vue'
-import ParentComponent from './components/ParentComponent.vue';
+import MainContainer from './components/MainContainer.vue';
 </script>

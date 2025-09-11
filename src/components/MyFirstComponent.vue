@@ -1,14 +1,9 @@
-<template>
-  <div>
-    <h2 class="text-4xl text-blue-500">My first component</h2>
-    <p>This is my first custom Vue component.</p>
-    <p>{{ foo }}</p>
-  </div>
-</template>
-
 <script setup>
-import { ref } from "vue";
-
-const foo = ref("yo");
+defineProps(["foo", "img_src", "img_classes"]);
 </script>
 
+<template>
+  <div class="bg-gray-300">
+    <img :src="img_src" alt="alt" :class="img_classes">
+  </div>
+</template>
