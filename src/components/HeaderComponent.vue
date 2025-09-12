@@ -9,6 +9,8 @@
         :btnContent="btnContent"
         :ddID="ddID"
         :ddClasses="ddClasses"
+        :metric="isMetric"
+        :metricContent="metricContent"
         @click="btnOnclick" />
     </div>
 
@@ -51,7 +53,22 @@ const btnContent = [ {
   const isMetric = true;
   const ddID = "ddID";
   const ddClasses = "hidden w-53 flex flex-col absolute top-15 right-0 bg-widget-color rounded-xl";
-  const metricContent = [
+  const metricContent = [ {
+    tag: "btn",
+    htmlID: "sti",
+    classes: "",
+    btnTxt: "Switch to Imperial"
+  },
+  {
+    tag: "h3",
+    classes: "",
+    txt: "Temperature"
+  },
+  {
+    tag: "div",
+    classes: "",
+    txt: "Celsius (C)"
+  }
     /*
     button
     h3

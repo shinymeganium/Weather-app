@@ -5,12 +5,25 @@
       <span v-else :class="element.classes">{{ element.text }}</span>
     </template>
     <template :id="ddID" :class="ddClasses">
-      asd
+      <template v-if="metric">
+        <div v-for="element in metricContent" :key="element.id">
+          <d-d-item :el="element"/>
+        </div>
+        metric
+      </template>
+      <template v-else>
+        <div v-for="element in imperialContent" :key="element.id">
+          <d-d-item :el="element"/>
+        </div>
+        imperial
+      </template>
     </template>
 
   </button>
 </template>
 
 <script setup>
-defineProps(["btnID", "btnClasses", "btnContent", "ddID", "ddClasses", "metric"]);
+import DDItem from './DDItem.vue';
+
+defineProps(["btnID", "btnClasses", "btnContent", "ddID", "ddClasses", "metric", "metricContent", "imperialContent"]);
 </script>
