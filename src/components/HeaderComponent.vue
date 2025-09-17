@@ -3,13 +3,25 @@
     <div class="flex justify-between">
       <img class="w-35 h-8" src="/src/assets/img/logo.svg" alt="logo">
       <!-- // -->
-      <Dropdown ddID="ddID">
+      <Dropdown :show="show">
         <template v-slot:btn>
           <button @click="toggle" class="flex justify-center relative items-center gap-2 px-4 py-3 bg-widget-color rounded-xl">
             Units
           </button>
         </template>
         <template v-slot:dd>
+          <button class="">Switch to Imperial</button>
+          <h3 class="">Temperature</h3>
+          <span class="">Celsius</span>
+          <span class="">Fahrenheit</span>
+          <hr>
+          <h3 class="">Wind Speed</h3>
+          <span class="">km/h</span>
+          <span class="">mph</span>
+          <hr>
+          <h3 class="">Precipitation</h3>
+          <span class="">Millimeters</span>
+          <span class="">Inches</span>
         </template>
       </Dropdown>
     </div>
@@ -26,14 +38,15 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import Dropdown from "./Dropdown.vue";
 
-function toggle() {
-  document.querySelector("#dd").classList.toggle("hidden");
-}
+const show = ref(false);
+const toggle = () => {
+  show.value = !show.value;
+};
 
 const isMetric = true;
-const ddID = "ddID";
 const ddClasses = "hidden w-53 flex flex-col absolute top-15 right-0 bg-widget-color rounded-xl";
 const metricContent = [ {
   tag: "btn",
