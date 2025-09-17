@@ -3,15 +3,15 @@
     <div class="flex justify-between">
       <img class="w-35 h-8" src="/src/assets/img/logo.svg" alt="logo">
       <!-- // -->
-      <dropdown
-        :id="btnID"
-        :class="btnClasses"
-        :btnContent="btnContent"
-        :ddID="ddID"
-        :ddClasses="ddClasses"
-        :metric="isMetric"
-        :metricContent="metricContent"
-        @click="btnOnclick" />
+      <Dropdown ddID="ddID">
+        <template v-slot:btn>
+          <button @click="toggle" class="flex justify-center relative items-center gap-2 px-4 py-3 bg-widget-color rounded-xl">
+            Units
+          </button>
+        </template>
+        <template v-slot:dd>
+        </template>
+      </Dropdown>
     </div>
 
     <h1 class="w-85 m-auto text-6xl/20 text-center font-bold">
@@ -28,62 +28,44 @@
 <script setup>
 import Dropdown from "./Dropdown.vue";
 
-const btnID = "btnDD";
-const btnClasses = "flex justify-center relative items-center gap-2 px-4 py-3 bg-widget-color rounded-xl";
-const btnContent = [ {
-    tag: "img",
-    classes: "size-5",
-    src: "src/assets/img/icon-units.svg",
-    alt: "units"
-  },
-  {
-    tag: "span",
-    text: "Units"
-  },
-  {
-    tag: "img",
-    classes: "size-3",
-    src: "src/assets/img/icon-dropdown.svg",
-    alt: "dropdown"
-  }];
-  function btnOnclick() {
-    document.querySelector("#ddID").classList.toggle("hidden");
-  }
+function toggle() {
+  document.querySelector("#dd").classList.toggle("hidden");
+}
 
-  const isMetric = true;
-  const ddID = "ddID";
-  const ddClasses = "hidden w-53 flex flex-col absolute top-15 right-0 bg-widget-color rounded-xl";
-  const metricContent = [ {
-    tag: "btn",
-    htmlID: "sti",
-    classes: "",
-    btnTxt: "Switch to Imperial"
-  },
-  {
-    tag: "h3",
-    classes: "",
-    txt: "Temperature"
-  },
-  {
-    tag: "div",
-    classes: "",
-    txt: "Celsius (C)"
-  }
-    /*
-    button
-    h3
-    div
-    div
-    hr
-    h3
-    div
-    div
-    hr
-    h3
-    div
-    div
-    */ 
-  ];
+const isMetric = true;
+const ddID = "ddID";
+const ddClasses = "hidden w-53 flex flex-col absolute top-15 right-0 bg-widget-color rounded-xl";
+const metricContent = [ {
+  tag: "btn",
+  htmlID: "sti",
+  classes: "",
+  btnTxt: "Switch to Imperial"
+},
+{
+  tag: "h3",
+  classes: "",
+  txt: "Temperature"
+},
+{
+  tag: "div",
+  classes: "",
+  txt: "Celsius (C)"
+}
+  /*
+  button
+  h3
+  div
+  div
+  hr
+  h3
+  div
+  div
+  hr
+  h3
+  div
+  div
+  */ 
+];
 
 // const btnClasses ="flex justify-center relative items-center gap-2 px-4 py-3 bg-widget-color rounded-xl";
 // // change to descriptive (id?, key, value etc)
