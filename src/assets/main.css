@@ -6,7 +6,10 @@
   --font-bricolage-grotesque: "Bricolage Grotesque", sans-serif;
   --color-bg-color: #02012B;
   --color-widget-color: #25253F;
+  --color-widget-color-hover: #302F4A;
   --color-button-color: #4657D9;
+  --color-dd-h3: #ACACB7;
+  --color-divider: #3C3B5E;
 }
 
 /* <weight>: Use a value from 100 to 1000 */

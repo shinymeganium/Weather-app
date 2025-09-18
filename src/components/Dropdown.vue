@@ -1,10 +1,10 @@
 <template>
   <slot name="btn"/>
-  <div v-if="show" class="'hidden w-53 flex flex-col absolute top-15 right-0 bg-widget-color rounded-xl'">
+  <div v-if="show" :class="ddClasses">
     <slot name="dd"/>
   </div>
 </template>
 
 <script setup>
-defineProps(["show"]);
+defineProps(["show", "ddClasses"]);
 </script>
