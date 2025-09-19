@@ -14,24 +14,39 @@
         <template v-slot:dd>
           <button class="h-9 pl-2 pb-2 mt-1 rounded-xl leading-9 text-left text-md hover:bg-widget-color-hover">Switch to Imperial</button>
           <div class="flex flex-col gap-2 text-md">
-            <h3 class="text-sm text-dd-h3">Temperature</h3>
-            <div class="flex justify-between">
-              <span class="">Celsius (&deg;C)</span>
+            <h3 class="px-2 text-sm text-dd-h3">Temperature</h3>
+            <div class="flex justify-between p-2 rounded-xl hover:bg-widget-color-hover focus-within:bg-widget-color-hover">
+              <button class="">Celsius (&deg;C)</button>
               <img class="" src="../../src/assets/img/icon-checkmark.svg" alt="check">
             </div>
-            <span class="">Fahrenheit (&deg;F)</span>
+            <div class="flex justify-between p-2 rounded-xl hover:bg-widget-color-hover">
+              <button class="">Fahrenheit (&deg;F)</button>
+              <img class="" src="../../src/assets/img/icon-checkmark.svg" alt="check">
+            </div>
             <hr class="border-divider">
           </div>
           <div class="flex flex-col gap-2 text-md">
-            <h3 class="text-sm text-dd-h3">Wind Speed</h3>
-            <span class="">km/h</span>
-            <span class="">mph</span>
+            <h3 class="px-2 text-sm text-dd-h3">Wind Speed</h3>
+            <div class="flex justify-between p-2 rounded-xl hover:bg-widget-color-hover">
+              <button class="">km/h</button>
+              <img class="" src="../../src/assets/img/icon-checkmark.svg" alt="check">
+            </div>
+            <div class="flex justify-between p-2 rounded-xl hover:bg-widget-color-hover">
+              <button class="">mph</button>
+              <img class="" src="../../src/assets/img/icon-checkmark.svg" alt="check">
+            </div>
             <hr class="border-divider">
           </div>
           <div class="flex flex-col gap-2 text-md">
-            <h3 class="text-sm text-dd-h3">Precipitation</h3>
-            <span class="">Millimeters</span>
-            <span class="">Inches</span>
+            <h3 class="px-2 text-sm text-dd-h3">Precipitation</h3>
+            <div class="flex justify-between p-2 rounded-xl hover:bg-widget-color-hover">
+              <button class="">Millimeters (mm)</button>
+              <img class="" src="../../src/assets/img/icon-checkmark.svg" alt="check">
+            </div>
+            <div class="flex justify-between p-2 rounded-xl hover:bg-widget-color-hover">
+              <button class="">Inches (in)</button>
+              <img class="" src="../../src/assets/img/icon-checkmark.svg" alt="check">
+            </div>
           </div>
         </template>
       </Dropdown>
@@ -56,7 +71,7 @@ const show = ref(false);
 const toggle = () => {
   show.value = !show.value;
 };
-const ddClasses = "w-53 flex flex-col absolute top-19 right-4 px-2 py-1 gap-3 bg-widget-color rounded-xl";
+const ddClasses = "w-53 flex flex-col absolute top-19 right-4 px-2 py-1 gap-3 bg-widget-color rounded-xl border border-divider";
 // w-53 flex flex-col absolute top-15 right-0 bg-widget-color rounded-3xl
 
 const isMetric = true;
